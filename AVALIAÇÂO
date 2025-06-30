@@ -1,0 +1,124 @@
+import java.util.Scanner; // Importe esta linha!
+
+
+
+public class CalculadoraMediasEscolares {
+
+
+
+public static void main(String[] args) {
+
+Scanner scanner = new Scanner(System.in); // 'Scanner' com S maiúsculo aqui
+
+
+
+double[] notas = new double[8]; // Array para armazenar as 8 notas anuais
+
+
+
+System.out.println("--- Calculadora de Médias Escolares ---");
+
+System.out.println("Por favor, digite as 8 notas anuais do aluno:");
+
+
+
+// Loop para receber as 8 notas do aluno
+
+for (int i = 0; i < 8; i++) {
+
+System.out.print("Digite a nota " + (i + 1) + ": ");
+
+notas[i] = scanner.nextDouble(); // Lê a nota digitada pelo usuário
+
+}
+
+
+
+// --- Cálculo das Médias Bimestrais ---
+
+double mediaBimestre1 = (notas[0] + notas[1]) / 2;
+
+double mediaBimestre2 = (notas[2] + notas[3]) / 2;
+
+double mediaBimestre3 = (notas[4] + notas[5]) / 2;
+
+double mediaBimestre4 = (notas[6] + notas[7]) / 2;
+
+
+
+// --- Cálculo das Médias Semestrais ---
+
+double mediaSemestre1 = (mediaBimestre1 + mediaBimestre2) / 2; // Atenção à capitalização aqui
+
+double mediaSemestre2 = (mediaBimestre3 + mediaBimestre4) / 2; // E aqui
+
+
+
+// --- Cálculo da Média Final ---
+
+double mediaFinal = (mediaSemestre1 + mediaSemestre2) / 2; // Use os nomes das variáveis corretos aqui
+
+
+
+// --- Apresentação dos Resultados ---
+
+System.out.println("\n--- Resultados ---");
+
+System.out.printf("Média do 1º Bimestre: %.2f%n", mediaBimestre1);
+
+System.out.printf("Média do 2º Bimestre: %.2f%n", mediaBimestre2);
+
+System.out.printf("Média do 3º Bimestre: %.2f%n", mediaBimestre3);
+
+System.out.printf("Média do 4º Bimestre: %.2f%n", mediaBimestre4);
+
+System.out.println("--------------------");
+
+System.out.printf("Média do 1º Semestre: %.2f%n", mediaSemestre1);
+
+System.out.printf("Média do 2º Semestre: %.2f%n", mediaSemestre2);
+
+System.out.println("--------------------");
+
+System.out.printf("Média Final Anual: %.2f%n", mediaFinal);
+
+
+
+scanner.close(); // Fecha o objeto Scanner para liberar recursos
+
+}
+
+}
+
+
+import java.util.Scanner; // Importa a classe Scanner para permitir a entrada do usuário
+
+public class ConversorTemperatura {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in); // Cria um objeto Scanner para ler a entrada
+
+        System.out.println("--- Conversor de Temperatura ---");
+        System.out.print("Digite a temperatura em graus Celsius (°C): ");
+
+        // Garante que a entrada do usuário seja um número válido
+        while (!scanner.hasNextDouble()) {
+            System.out.println("Entrada inválida. Por favor, digite um número para a temperatura.");
+            System.out.print("Digite a temperatura em graus Celsius (°C): ");
+            scanner.next(); // Descarta a entrada inválida
+        }
+        double celsius = scanner.nextDouble(); // Lê a temperatura em Celsius digitada pelo usuário
+
+        // Realiza as conversões
+        double fahrenheit = (celsius * 9 / 5) + 32;
+        double kelvin = celsius + 273.15;
+
+        // Exibe os resultados
+        System.out.println("\n--- Resultados da Conversão ---");
+        System.out.printf("Temperatura em Celsius: %.2f °C\n", celsius);
+        System.out.printf("Temperatura em Fahrenheit: %.2f °F\n", fahrenheit);
+        System.out.printf("Temperatura em Kelvin: %.2f K\n", kelvin);
+
+        scanner.close(); // Fecha o objeto Scanner para liberar recursos
+    }
+}
